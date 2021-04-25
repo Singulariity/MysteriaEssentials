@@ -1,0 +1,7 @@
+name: MysteriaEssentials
+version: ${project.version}
+main: com.mysteria.essentials.EssentialsPlugin
+api-version: 1.16
+authors: [ Singularity ]
+depend: [ LuckPerms, MysteriaUtils ]
+softdepend: [ CustomAPI, MysteriaPlayerTitles ]
