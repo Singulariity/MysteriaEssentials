@@ -6,6 +6,7 @@ import com.mysteria.essentials.EssentialsPlugin;
 import com.mysteria.titles.PlayerTitlesPlugin;
 import com.mysteria.titles.enums.Title;
 import com.mysteria.utils.NamedColor;
+import com.mysteria.utils.enums.Icon;
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.TextComponent;
 import net.kyori.adventure.text.format.NamedTextColor;
@@ -25,6 +26,7 @@ import org.bukkit.scheduler.BukkitRunnable;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
+import javax.swing.*;
 import java.util.*;
 
 public class PlayerManager {
@@ -201,8 +203,12 @@ public class PlayerManager {
 		if (effects.size() > 0) {
 			EffectManager effectManager = CustomAPIPlugin.getEffectManager();
 			for (PotionEffect effect : effects) {
+				footer.append(Component.newline());
+				Icon icon = Icon.getIcon(effect.getType().getName());
+				if (icon != null) {
+					footer.append(Component.text(icon.toString())).append(Component.space());
+				}
 				footer.append(Component.text()
-						.append(Component.newline())
 						.append(Component.translatable("potion.withDuration",
 								Component.translatable("potion.withAmplifier",
 										Component.translatable("effect.minecraft." + effect.getType().getName().toLowerCase()),
