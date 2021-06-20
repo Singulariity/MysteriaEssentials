@@ -19,14 +19,12 @@ import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.World;
 import org.bukkit.configuration.file.FileConfiguration;
-import org.bukkit.craftbukkit.v1_16_R3.entity.CraftPlayer;
 import org.bukkit.entity.Player;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.scheduler.BukkitRunnable;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
-import javax.swing.*;
 import java.util.*;
 
 public class PlayerManager {
@@ -195,7 +193,7 @@ public class PlayerManager {
 				.append(Component.text(Bukkit.getOnlinePlayers().size(), NamedColor.SOARING_EAGLE))
 				.append(Component.newline())
 				.append(Component.text("Ping: ", NamedColor.CARMINE_PINK))
-				.append(Component.text(((CraftPlayer) p).getHandle().ping + "ms", NamedColor.SOARING_EAGLE))
+				.append(Component.text(p.getPing() + "ms", NamedColor.SOARING_EAGLE))
 				.append(Component.newline())
 				.append(Component.newline());
 

@@ -46,7 +46,13 @@ public class ChatListener implements Listener {
 			long cooldown = messageCoolDowns.getOrDefault(p, 0L);
 			if (MysteriaUtils.checkCooldown(cooldown) || p.hasPermission("essentialsm.cdbypass.chat")) {
 				messageCoolDowns.put(p, MysteriaUtils.createCooldown(2));
-				e.recipients().removeIf(receiver -> p.getWorld() != receiver.getWorld() || p.getLocation().distance(receiver.getLocation()) > 75);
+				e.viewers().removeIf(viewer -> {
+					if (viewer instanceof Player) {
+						Player viewerP = (Player) viewer;
+						return p.getWorld() != viewerP.getWorld() || p.getLocation().distance(viewerP.getLocation()) > 75;
+					}
+					return false;
+				});
 			} else {
 				Component message = Component.translatable(
 						"mystery.message.chat.cooldown_normal", NamedColor.CARMINE_PINK,
@@ -58,7 +64,7 @@ public class ChatListener implements Listener {
 
 		}
 
-		e.composer(EssentialsPlugin.getChatManager().getDefaultComposer());
+		e.renderer(EssentialsPlugin.getChatManager().getdefaultRenderer());
 
 	}
 }

@@ -1,21 +1,21 @@
 package com.mysteria.essentials.chatmanager;
 
 import com.mysteria.essentials.EssentialsPlugin;
-import com.mysteria.essentials.chatmanager.composers.DefaultComposer;
+import com.mysteria.essentials.chatmanager.composers.DefaultRenderer;
 
 public class ChatManager {
 
-	private final DefaultComposer defaultComposer;
+	private final DefaultRenderer defaultRenderer;
 
 	public ChatManager() {
 		if (EssentialsPlugin.getChatManager() != null) {
 			throw new IllegalStateException();
 		}
-		defaultComposer = new DefaultComposer();
+		defaultRenderer = new DefaultRenderer();
 	}
 
-	public DefaultComposer getDefaultComposer() {
-		return defaultComposer;
+	public DefaultRenderer getdefaultRenderer() {
+		return defaultRenderer;
 	}
 
 }

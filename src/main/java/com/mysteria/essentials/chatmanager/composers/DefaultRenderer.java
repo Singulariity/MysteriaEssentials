@@ -5,7 +5,8 @@ import com.mysteria.essentials.chatmanager.ChatManager;
 import com.mysteria.essentials.playermanager.PlayerManager;
 import com.mysteria.utils.MysteriaUtils;
 import com.mysteria.utils.NamedColor;
-import io.papermc.paper.chat.ChatComposer;
+import io.papermc.paper.chat.ChatRenderer;
+import net.kyori.adventure.audience.Audience;
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.TextReplacementConfig;
 import net.kyori.adventure.text.event.ClickEvent;
@@ -21,11 +22,11 @@ import org.jetbrains.annotations.NotNull;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class DefaultComposer implements ChatComposer {
+public class DefaultRenderer implements ChatRenderer {
 
-	public DefaultComposer() {
+	public DefaultRenderer() {
 		ChatManager chatManager = EssentialsPlugin.getChatManager();
-		if (chatManager != null && chatManager.getDefaultComposer() != null) {
+		if (chatManager != null && chatManager.getdefaultRenderer() != null) {
 			throw new IllegalStateException();
 		}
 	}
@@ -40,7 +41,7 @@ public class DefaultComposer implements ChatComposer {
 			.build();
 
 	@Override
-	public @NotNull Component composeChat(@NotNull Player p, @NotNull Component displayName, @NotNull Component message) {
+	public @NotNull Component render(@NotNull Player p, @NotNull Component displayName, @NotNull Component message, @NotNull Audience viewer) {
 
 		PlayerManager manager = EssentialsPlugin.getPlayerManager();
 
@@ -111,4 +112,5 @@ public class DefaultComposer implements ChatComposer {
 				.append(finalMessage)
 				.build();
 	}
+
 }
