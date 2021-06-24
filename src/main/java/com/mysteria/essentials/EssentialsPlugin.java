@@ -49,6 +49,7 @@ public final class EssentialsPlugin extends JavaPlugin {
 
 	private void registerCommands() {
 		getCommandManager().registerCommand(new ApplyGameRulesCommand());
+		getCommandManager().registerCommand(new ClearChatCommand());
 		getCommandManager().registerCommand(new HealCommand());
 		getCommandManager().registerCommand(new MessageToggleCommand());
 		getCommandManager().registerCommand(new ReloadCommand());
