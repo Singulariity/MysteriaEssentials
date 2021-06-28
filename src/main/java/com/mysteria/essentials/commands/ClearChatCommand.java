@@ -31,9 +31,9 @@ public class ClearChatCommand extends BaseCommand {
 				NamedColor.BEEKEEPER, Component.text(sender.getName(), NamedColor.CARMINE_PINK));
 		for (Player p : players) {
 			p.sendMessage(empty);
-			MysteriaUtils.sendMessage(p, info);
-			p.sendMessage(Component.text(" "));
 		}
+		MysteriaUtils.broadcastMessage(info);
+		MysteriaUtils.broadcastMessage(Component.text(" "));
 
 	}
 
