@@ -33,7 +33,7 @@ public class ClearChatCommand extends BaseCommand {
 			p.sendMessage(empty);
 		}
 		MysteriaUtils.broadcastMessage(info);
-		MysteriaUtils.broadcastMessage(Component.text(" "));
+		Bukkit.broadcast(Component.text(" "));
 
 	}
 
